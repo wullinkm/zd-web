@@ -1,0 +1,21 @@
+name: Deploy to DigitalOcean
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: []
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to DigitalOcean App Platform
+        uses: digitalocean/app_action@v2
+        with:
+          app_name: zd-web
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
