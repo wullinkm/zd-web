@@ -1,0 +1,134 @@
+{
+  "nav": {
+    "home": "Home",
+    "jobs": "Jobs",
+    "about": "About",
+    "contact": "Contact",
+    "findJobs": "Find Jobs"
+  },
+  "hero": {
+    "badge": "Your career starts here",
+    "title": "Find Your Next",
+    "titleHighlight": "Career Opportunity",
+    "subtitle": "Browse hundreds of job openings from top companies. Your dream job is just a search away.",
+    "searchPlaceholder": "Search jobs by title, company, or location..."
+  },
+  "stats": {
+    "jobs": "Job Listings",
+    "companies": "Companies",
+    "industries": "Industries"
+  },
+  "featured": {
+    "title": "Latest Openings",
+    "subtitle": "Fresh opportunities added daily",
+    "viewAll": "View all jobs"
+  },
+  "features": {
+    "title": "Why ZD Jobs?",
+    "subtitle": "We make finding your next role simple, fast, and trustworthy.",
+    "search": {
+      "title": "Smart Search",
+      "description": "Find exactly the right role with powerful search and filtering across hundreds of positions."
+    },
+    "verified": {
+      "title": "Verified Listings",
+      "description": "Every job posting is verified to ensure quality and accuracy. No spam, no duplicates."
+    },
+    "apply": {
+      "title": "Easy Apply",
+      "description": "Apply directly to companies with one click. No complicated multi-step applications."
+    }
+  },
+  "cta": {
+    "title": "Ready to Take the Next Step?",
+    "subtitle": "Hundreds of opportunities are waiting for you. Start browsing and find your perfect match.",
+    "button": "Browse All Jobs"
+  },
+  "vacancies": {
+    "title": "Job Openings",
+    "positions": "{count, plural, one {# position} other {# positions}} available",
+    "search": "Search",
+    "noResults": "No vacancies found",
+    "noResultsHint": "Try adjusting your search or check back later for new openings.",
+    "backToAll": "Back to all jobs",
+    "aboutRole": "About this role",
+    "jobDetails": "Job Details",
+    "company": "Company",
+    "location": "Location",
+    "type": "Type",
+    "salary": "Salary",
+    "postedOn": "Posted {date}",
+    "applyNow": "Apply Now"
+  },
+  "about": {
+    "title": "Connecting Talent with",
+    "titleHighlight": "Opportunity",
+    "subtitle": "ZD Jobs is on a mission to make job searching simple, transparent, and effective. We believe everyone deserves to find work they love.",
+    "howItWorks": "How It Works",
+    "howItWorksSubtitle": "Three simple steps to your next role",
+    "step01": "Search",
+    "step01Desc": "Browse hundreds of curated job listings from top companies. Use filters to find exactly what you're looking for.",
+    "step02": "Apply",
+    "step02Desc": "Found your dream role? Apply directly with one click. No complicated forms, no friction.",
+    "step03": "Get Hired",
+    "step03Desc": "Connect with employers and start your next chapter. We're with you every step of the way.",
+    "values": "Our Values",
+    "valuesSubtitle": "What drives us every day",
+    "quality": "Quality First",
+    "qualityDesc": "We verify every listing to ensure you only see real, quality opportunities. No spam, no clutter.",
+    "people": "People Centered",
+    "peopleDesc": "Behind every job search is a person with aspirations. We build for you, not for metrics.",
+    "trust": "Trust & Transparency",
+    "trustDesc": "Clear job descriptions, honest salary ranges, and verified employers. What you see is what you get.",
+    "quote": "We believe that finding meaningful work shouldn't be a full-time job in itself.",
+    "quoteAuthor": "— The ZD Jobs Team"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have a question or feedback? We'd love to hear from you.",
+    "formTitle": "Send us a message",
+    "formSubtitle": "Fill out the form below and we'll get back to you within 24 hours.",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "subject": "Subject",
+    "subjectPlaceholder": "What's this about?",
+    "message": "Message",
+    "messagePlaceholder": "Tell us more...",
+    "send": "Send Message",
+    "sent": "Message sent!",
+    "sentMessage": "Thanks for reaching out. We'll be in touch soon.",
+    "info": "Contact Information",
+    "emailLabel": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "faq": "FAQ",
+    "faq1q": "How do I post a job listing?",
+    "faq1a": "Contact us via the form or email and we'll get you set up. We're working on self-service job posting for the near future.",
+    "faq2q": "Is ZD Jobs free for job seekers?",
+    "faq2a": "Yes! Browsing and applying to jobs is completely free for candidates. Always.",
+    "faq3q": "How often are new jobs added?",
+    "faq3a": "We add new listings daily. Jobs are sourced from verified employers across the Netherlands.",
+    "faq4q": "Can I get notified about new jobs?",
+    "faq4a": "Job alerts are coming soon. In the meantime, check back regularly for the latest openings."
+  },
+  "footer": {
+    "tagline": "Connecting talent with opportunity. Find your next career move with ZD Jobs.",
+    "quickLinks": "Quick Links",
+    "browseJobs": "Browse Jobs",
+    "aboutUs": "About Us",
+    "contact": "Contact",
+    "forEmployers": "For Employers",
+    "postJob": "Post a Job",
+    "pricing": "Pricing",
+    "enterprise": "Enterprise",
+    "getInTouch": "Get in Touch",
+    "rights": "© {year} ZD Jobs. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "common": {
+    "unknown": "Unknown"
+  }
+}

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Suspense } from "react";
+import { useTranslations } from "next-intl";
 import { Briefcase, Building2, Globe, ArrowRight, Search, CheckCircle2, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,38 +7,41 @@ import { getVacancies } from "@/lib/api";
 import { Vacancy } from "@/lib/types";
 import { VacancyList } from "@/components/vacancy/vacancy-list";
 import { SearchBar } from "@/components/search/search-bar";
-
-const stats = [
-  { icon: Briefcase, label: "Job Listings", value: "500+" },
-  { icon: Building2, label: "Companies", value: "100+" },
-  { icon: Globe, label: "Industries", value: "10+" },
-];
-
-const features = [
-  {
-    icon: Search,
-    title: "Smart Search",
-    description: "Find exactly the right role with powerful search and filtering across hundreds of positions.",
-  },
-  {
-    icon: CheckCircle2,
-    title: "Verified Listings",
-    description: "Every job posting is verified to ensure quality and accuracy. No spam, no duplicates.",
-  },
-  {
-    icon: Send,
-    title: "Easy Apply",
-    description: "Apply directly to companies with one click. No complicated multi-step applications.",
-  },
-];
+import { Link } from "@/i18n/navigation";
 
 export default async function HomePage() {
+  const t = useTranslations();
+
   let vacancies: Vacancy[] = [];
   try {
     vacancies = await getVacancies({ limit: 6 });
   } catch {
     // API might not be available yet
   }
+
+  const stats = [
+    { icon: Briefcase, label: t("stats.jobs"), value: "500+" },
+    { icon: Building2, label: t("stats.companies"), value: "100+" },
+    { icon: Globe, label: t("stats.industries"), value: "10+" },
+  ];
+
+  const features = [
+    {
+      icon: Search,
+      title: t("features.search.title"),
+      description: t("features.search.description"),
+    },
+    {
+      icon: CheckCircle2,
+      title: t("features.verified.title"),
+      description: t("features.verified.description"),
+    },
+    {
+      icon: Send,
+      title: t("features.apply.title"),
+      description: t("features.apply.description"),
+    },
+  ];
 
   return (
     <div>
@@ -48,16 +51,16 @@ export default async function HomePage() {
         <div className="relative mx-auto max-w-4xl text-center">
           <div className="mb-4 inline-flex items-center rounded-full border bg-background/80 px-3 py-1 text-sm text-muted-foreground backdrop-blur-sm">
             <Briefcase className="mr-1.5 h-3.5 w-3.5" />
-            Your career starts here
+            {t("hero.badge")}
           </div>
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-            Find Your Next{" "}
+            {t("hero.title")}{" "}
             <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-              Career Opportunity
+              {t("hero.titleHighlight")}
             </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Browse hundreds of job openings from top companies. Your dream job is just a search away.
+            {t("hero.subtitle")}
           </p>
           <div className="mx-auto mt-8 max-w-xl">
             <Suspense fallback={null}>
@@ -85,12 +88,12 @@ export default async function HomePage() {
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="flex items-end justify-between">
             <div>
-              <h2 className="text-2xl font-bold sm:text-3xl">Latest Openings</h2>
-              <p className="mt-1 text-muted-foreground">Fresh opportunities added daily</p>
+              <h2 className="text-2xl font-bold sm:text-3xl">{t("featured.title")}</h2>
+              <p className="mt-1 text-muted-foreground">{t("featured.subtitle")}</p>
             </div>
             <Button variant="ghost" asChild>
               <Link href="/vacancies" className="hidden sm:inline-flex">
-                View all jobs <ArrowRight className="ml-1 h-4 w-4" />
+                {t("featured.viewAll")} <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </Button>
           </div>
@@ -99,7 +102,7 @@ export default async function HomePage() {
           </div>
           <div className="mt-6 text-center sm:hidden">
             <Button variant="outline" asChild>
-              <Link href="/vacancies">View all jobs</Link>
+              <Link href="/vacancies">{t("featured.viewAll")}</Link>
             </Button>
           </div>
         </section>
@@ -109,9 +112,9 @@ export default async function HomePage() {
       <section className="bg-muted/30 px-4 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="text-center">
-            <h2 className="text-2xl font-bold sm:text-3xl">Why ZD Jobs?</h2>
+            <h2 className="text-2xl font-bold sm:text-3xl">{t("features.title")}</h2>
             <p className="mx-auto mt-2 max-w-lg text-muted-foreground">
-              We make finding your next role simple, fast, and trustworthy.
+              {t("features.subtitle")}
             </p>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-3">
@@ -135,20 +138,13 @@ export default async function HomePage() {
       {/* CTA */}
       <section className="px-4 py-16 sm:py-20">
         <div className="mx-auto max-w-3xl rounded-2xl bg-gradient-to-r from-primary to-primary/80 px-6 py-12 text-center text-primary-foreground sm:px-12 sm:py-16">
-          <h2 className="text-2xl font-bold sm:text-3xl">
-            Ready to Take the Next Step?
-          </h2>
+          <h2 className="text-2xl font-bold sm:text-3xl">{t("cta.title")}</h2>
           <p className="mx-auto mt-3 max-w-md text-primary-foreground/80">
-            Hundreds of opportunities are waiting for you. Start browsing and find your perfect match.
+            {t("cta.subtitle")}
           </p>
-          <Button
-            size="lg"
-            variant="secondary"
-            asChild
-            className="mt-6"
-          >
+          <Button size="lg" variant="secondary" asChild className="mt-6">
             <Link href="/vacancies">
-              Browse All Jobs <ArrowRight className="ml-1 h-4 w-4" />
+              {t("cta.button")} <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </Button>
         </div>

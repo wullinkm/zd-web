@@ -1,0 +1,134 @@
+{
+  "nav": {
+    "home": "Home",
+    "jobs": "Vacatures",
+    "about": "Over ons",
+    "contact": "Contact",
+    "findJobs": "Vind vacatures"
+  },
+  "hero": {
+    "badge": "Je carrière begint hier",
+    "title": "Vind Jouw Volgende",
+    "titleHighlight": "Carrièrekans",
+    "subtitle": "Blader door honderden vacatures van topbedrijven. Jouw droombaan is slechts een zoekopdracht verwijderd.",
+    "searchPlaceholder": "Zoek vacatures op titel, bedrijf of locatie..."
+  },
+  "stats": {
+    "jobs": "Vacatures",
+    "companies": "Bedrijven",
+    "industries": "Sectoren"
+  },
+  "featured": {
+    "title": "Nieuwste vacatures",
+    "subtitle": "Dagelijks nieuwe kansen",
+    "viewAll": "Bekijk alle vacatures"
+  },
+  "features": {
+    "title": "Waarom ZD Jobs?",
+    "subtitle": "Wij maken het vinden van je volgende baan eenvoudig, snel en betrouwbaar.",
+    "search": {
+      "title": "Slim zoeken",
+      "description": "Vind precies de juiste functie met krachtige zoek- en filtermogelijkheden."
+    },
+    "verified": {
+      "title": "Geverifieerde vacatures",
+      "description": "Elke vacature wordt gecontroleerd op kwaliteit en nauwkeurigheid. Geen spam, geen duplicaten."
+    },
+    "apply": {
+      "title": "Eenvoudig solliciteren",
+      "description": "Solliciteer direct bij bedrijven met één klik. Geen ingewikkelde formulieren."
+    }
+  },
+  "cta": {
+    "title": "Klaar voor de volgende stap?",
+    "subtitle": "Honderden mogelijkheden wachten op je. Begin met zoeken en vind jouw perfecte match.",
+    "button": "Bekijk alle vacatures"
+  },
+  "vacancies": {
+    "title": "Vacatures",
+    "positions": "{count, plural, one {# positie} other {# posities}} beschikbaar",
+    "search": "Zoeken",
+    "noResults": "Geen vacatures gevonden",
+    "noResultsHint": "Pas je zoekopdracht aan of kom later terug voor nieuwe vacatures.",
+    "backToAll": "Terug naar alle vacatures",
+    "aboutRole": "Over deze functie",
+    "jobDetails": "Vacaturedetails",
+    "company": "Bedrijf",
+    "location": "Locatie",
+    "type": "Type",
+    "salary": "Salaris",
+    "postedOn": "Geplaatst op {date}",
+    "applyNow": "Nu solliciteren"
+  },
+  "about": {
+    "title": "Talent verbinden met",
+    "titleHighlight": "Kansen",
+    "subtitle": "ZD Jobs heeft als missie om het zoeken naar werk eenvoudig, transparant en effectief te maken. Wij geloven dat iedereen werk verdient waar ze van houden.",
+    "howItWorks": "Hoe het werkt",
+    "howItWorksSubtitle": "Drie eenvoudige stappen naar je volgende baan",
+    "step01": "Zoeken",
+    "step01Desc": "Blader door honderden vacatures van topbedrijven. Gebruik filters om precies te vinden wat je zoekt.",
+    "step02": "Solliciteren",
+    "step02Desc": "Je droombaan gevonden? Solliciteer direct met één klik. Geen ingewikkelde formulieren.",
+    "step03": "Aangenomen",
+    "step03Desc": "Maak contact met werkgevers en begin je volgende hoofdstuk. Wij staan elke stap voor je klaar.",
+    "values": "Onze waarden",
+    "valuesSubtitle": "Wat ons elke dag drijft",
+    "quality": "Kwaliteit eerst",
+    "qualityDesc": "We verifiëren elke vacature zodat je alleen echte, kwalitatieve kansen ziet.",
+    "people": "Mensgericht",
+    "peopleDesc": "Achter elke zoektocht staat een persoon met ambities. Wij bouwen voor jou, niet voor statistieken.",
+    "trust": "Vertrouwen & transparantie",
+    "trustDesc": "Duidelijke functieomschrijvingen, eerlijke salarissen en geverifieerde werkgevers.",
+    "quote": "Wij geloven dat het vinden van betekenisvol werk geen fulltime baan op zich zou moeten zijn.",
+    "quoteAuthor": "— Het ZD Jobs Team"
+  },
+  "contact": {
+    "title": "Neem contact op",
+    "subtitle": "Heb je een vraag of feedback? We horen graag van je.",
+    "formTitle": "Stuur ons een bericht",
+    "formSubtitle": "Vul het formulier in en we nemen binnen 24 uur contact met je op.",
+    "name": "Naam",
+    "namePlaceholder": "Jouw naam",
+    "email": "E-mail",
+    "emailPlaceholder": "jij@voorbeeld.nl",
+    "subject": "Onderwerp",
+    "subjectPlaceholder": "Waar gaat het over?",
+    "message": "Bericht",
+    "messagePlaceholder": "Vertel ons meer...",
+    "send": "Verstuur bericht",
+    "sent": "Bericht verzonden!",
+    "sentMessage": "Bedankt voor je bericht. We nemen snel contact met je op.",
+    "info": "Contactgegevens",
+    "emailLabel": "E-mail",
+    "phone": "Telefoon",
+    "address": "Adres",
+    "faq": "Veelgestelde vragen",
+    "faq1q": "Hoe kan ik een vacature plaatsen?",
+    "faq1a": "Neem contact met ons op via het formulier of per e-mail en we helpen je verder.",
+    "faq2q": "Is ZD Jobs gratis voor werkzoekenden?",
+    "faq2a": "Ja! Het zoeken en solliciteren naar vacatures is volledig gratis voor kandidaten. Altijd.",
+    "faq3q": "Hoe vaak worden nieuwe vacatures toegevoegd?",
+    "faq3a": "We voegen dagelijks nieuwe vacatures toe van geverifieerde werkgevers in heel Nederland.",
+    "faq4q": "Kan ik meldingen krijgen over nieuwe vacatures?",
+    "faq4a": "Vacaturemeldingen komen binnenkort. Kijk in de tussentijd regelmatig voor de nieuwste vacatures."
+  },
+  "footer": {
+    "tagline": "Talent verbinden met kansen. Vind je volgende carrièrestap met ZD Jobs.",
+    "quickLinks": "Snelle links",
+    "browseJobs": "Vacatures bekijken",
+    "aboutUs": "Over ons",
+    "contact": "Contact",
+    "forEmployers": "Voor werkgevers",
+    "postJob": "Vacature plaatsen",
+    "pricing": "Prijzen",
+    "enterprise": "Enterprise",
+    "getInTouch": "Contact opnemen",
+    "rights": "© {year} ZD Jobs. Alle rechten voorbehouden.",
+    "privacy": "Privacybeleid",
+    "terms": "Algemene voorwaarden"
+  },
+  "common": {
+    "unknown": "Onbekend"
+  }
+}

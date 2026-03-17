@@ -1,9 +1,9 @@
-import Link from "next/link";
 import { MapPin, Clock, Building2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Vacancy } from "@/lib/types";
 import { formatDate, truncate } from "@/lib/utils";
+import { Link } from "@/i18n/navigation";
 
 interface VacancyCardProps {
   vacancy: Vacancy;
@@ -11,7 +11,7 @@ interface VacancyCardProps {
 
 export function VacancyCard({ vacancy }: VacancyCardProps) {
   return (
-    <Link href={`/vacancies/${vacancy.id}`} className="group block">
+    <Link href={`/vacancies/${vacancy.id}` as "/vacancies"} className="group block">
       <Card className="transition-all duration-200 hover:shadow-lg hover:border-primary/20 group-hover:-translate-y-0.5">
         <CardContent className="p-6">
           <div className="flex items-start justify-between gap-4">
@@ -39,9 +39,7 @@ export function VacancyCard({ vacancy }: VacancyCardProps) {
               </span>
             )}
             {vacancy.salary && (
-              <span className="flex items-center gap-1">
-                💰 {vacancy.salary}
-              </span>
+              <span className="flex items-center gap-1">💰 {vacancy.salary}</span>
             )}
             {vacancy.date_posted && (
               <span className="flex items-center gap-1">

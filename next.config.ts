@@ -1,11 +1,10 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const nextConfig: NextConfig = {
   output: "standalone",
-  // Ensure static assets are served correctly in standalone mode
-  experimental: {
-    // Copy static files into standalone output
-  },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

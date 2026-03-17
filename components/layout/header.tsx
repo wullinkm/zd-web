@@ -1,23 +1,39 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X, Briefcase } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
+import { Menu, Briefcase, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/vacancies", label: "Jobs" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+import { Link, useRouter } from "@/i18n/navigation";
 
 export function Header() {
+  const t = useTranslations("nav");
+  const locale = useLocale();
   const pathname = usePathname();
+  const router = useRouter();
   const [open, setOpen] = useState(false);
+
+  const navLinks = [
+    { href: "/" as const, label: t("home") },
+    { href: "/vacancies" as const, label: t("jobs") },
+    { href: "/about" as const, label: t("about") },
+    { href: "/contact" as const, label: t("contact") },
+  ];
+
+  const switchLocale = () => {
+    const newLocale = locale === "nl" ? "en" : "nl";
+    // Strip current locale prefix to get the path
+    const pathWithoutLocale = pathname.replace(/^\/(nl|en)/, "") || "/";
+    router.replace(pathWithoutLocale as "/" | "/vacancies" | "/about" | "/contact", { locale: newLocale });
+  };
+
+  const isActive = (href: string) => {
+    const path = pathname.replace(/^\/(nl|en)/, "") || "/";
+    return path === href;
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-lg">
@@ -39,7 +55,7 @@ export function Header() {
               href={link.href}
               className={cn(
                 "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                pathname === link.href
+                isActive(link.href)
                   ? "bg-primary/10 text-primary"
                   : "text-muted-foreground hover:bg-accent hover:text-foreground"
               )}
@@ -49,45 +65,54 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:flex">
+        <div className="hidden items-center gap-2 md:flex">
+          <Button variant="ghost" size="sm" onClick={switchLocale} className="gap-1.5">
+            <Globe className="h-4 w-4" />
+            {locale === "nl" ? "EN" : "NL"}
+          </Button>
           <Button asChild>
-            <Link href="/vacancies">Find Jobs</Link>
+            <Link href="/vacancies">{t("findJobs")}</Link>
           </Button>
         </div>
 
         {/* Mobile nav */}
-        <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu className="h-5 w-5" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-72">
-            <SheetTitle className="sr-only">Navigation</SheetTitle>
-            <div className="flex flex-col gap-4 pt-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className={cn(
-                    "rounded-lg px-3 py-2 text-base font-medium transition-colors",
-                    pathname === link.href
-                      ? "bg-primary/10 text-primary"
-                      : "text-muted-foreground hover:bg-accent hover:text-foreground"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <Button asChild className="mt-4">
-                <Link href="/vacancies" onClick={() => setOpen(false)}>
-                  Find Jobs
-                </Link>
+        <div className="flex items-center gap-2 md:hidden">
+          <Button variant="ghost" size="icon" onClick={switchLocale}>
+            <Globe className="h-4 w-4" />
+          </Button>
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-5 w-5" />
               </Button>
-            </div>
-          </SheetContent>
-        </Sheet>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-72">
+              <SheetTitle className="sr-only">Navigation</SheetTitle>
+              <div className="flex flex-col gap-4 pt-8">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={cn(
+                      "rounded-lg px-3 py-2 text-base font-medium transition-colors",
+                      isActive(link.href)
+                        ? "bg-primary/10 text-primary"
+                        : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <Button asChild className="mt-4">
+                  <Link href="/vacancies" onClick={() => setOpen(false)}>
+                    {t("findJobs")}
+                  </Link>
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );

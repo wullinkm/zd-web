@@ -1,8 +1,11 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { Briefcase, Mail } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { Link } from "@/i18n/navigation";
 
 export function Footer() {
+  const t = useTranslations("footer");
+
   return (
     <footer className="border-t bg-muted/30">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -17,56 +20,48 @@ export function Footer() {
                 ZD<span className="text-primary">Jobs</span>
               </span>
             </Link>
-            <p className="text-sm text-muted-foreground">
-              Connecting talent with opportunity. Find your next career move with ZD Jobs.
-            </p>
+            <p className="text-sm text-muted-foreground">{t("tagline")}</p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-3 text-sm font-semibold">Quick Links</h3>
+            <h3 className="mb-3 text-sm font-semibold">{t("quickLinks")}</h3>
             <ul className="space-y-2">
-              {[
-                { href: "/vacancies", label: "Browse Jobs" },
-                { href: "/about", label: "About Us" },
-                { href: "/contact", label: "Contact" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link href="/vacancies" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  {t("browseJobs")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  {t("aboutUs")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  {t("contact")}
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* For Employers */}
           <div>
-            <h3 className="mb-3 text-sm font-semibold">For Employers</h3>
+            <h3 className="mb-3 text-sm font-semibold">{t("forEmployers")}</h3>
             <ul className="space-y-2">
-              {["Post a Job", "Pricing", "Enterprise"].map((label) => (
-                <li key={label}>
-                  <span className="text-sm text-muted-foreground">{label}</span>
-                </li>
-              ))}
+              <li><span className="text-sm text-muted-foreground">{t("postJob")}</span></li>
+              <li><span className="text-sm text-muted-foreground">{t("pricing")}</span></li>
+              <li><span className="text-sm text-muted-foreground">{t("enterprise")}</span></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="mb-3 text-sm font-semibold">Get in Touch</h3>
-            <div className="space-y-2">
-              <a
-                href="mailto:info@zdjobs.nl"
-                className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                <Mail className="h-4 w-4" />
-                info@zdjobs.nl
-              </a>
-            </div>
+            <h3 className="mb-3 text-sm font-semibold">{t("getInTouch")}</h3>
+            <a href="mailto:info@zdjobs.nl" className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
+              <Mail className="h-4 w-4" />
+              info@zdjobs.nl
+            </a>
           </div>
         </div>
 
@@ -74,11 +69,11 @@ export function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} ZD Jobs. All rights reserved.
+            {t("rights", { year: new Date().getFullYear() })}
           </p>
           <div className="flex gap-4">
-            <span className="text-xs text-muted-foreground">Privacy Policy</span>
-            <span className="text-xs text-muted-foreground">Terms of Service</span>
+            <span className="text-xs text-muted-foreground">{t("privacy")}</span>
+            <span className="text-xs text-muted-foreground">{t("terms")}</span>
           </div>
         </div>
       </div>
