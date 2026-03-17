@@ -4,7 +4,8 @@
     "jobs": "Jobs",
     "about": "About",
     "contact": "Contact",
-    "findJobs": "Find Jobs"
+    "findJobs": "Find Jobs",
+    "dashboard": "Dashboard"
   },
   "hero": {
     "badge": "Your career starts here",
@@ -136,5 +137,42 @@
   },
   "common": {
     "unknown": "Unknown"
+  },
+  "dashboard": {
+    "myVacancies": "My Vacancies",
+    "postNew": "Post New Vacancy",
+    "backToSite": "Back to site",
+    "accessDenied": "Access Denied",
+    "accessDeniedDesc": "You need an employer account to access this page.",
+    "vacancyCount": "{count, plural, one {# vacancy} other {# vacancies}}",
+    "noVacancies": "No vacancies yet",
+    "noVacanciesDesc": "Post your first vacancy to get started.",
+    "active": "Active",
+    "inactive": "Inactive",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleteConfirm": "Are you sure you want to delete this vacancy?",
+    "editVacancy": "Edit Vacancy",
+    "form": {
+      "createTitle": "Post a New Vacancy",
+      "editTitle": "Edit Vacancy",
+      "title": "Job Title",
+      "company": "Company",
+      "location": "Location",
+      "description": "Description",
+      "department": "Department",
+      "employmentType": "Employment Type",
+      "salaryMin": "Salary Min",
+      "salaryMax": "Salary Max",
+      "salaryCurrency": "Currency",
+      "url": "Application URL",
+      "save": "Save",
+      "saving": "Saving...",
+      "cancel": "Cancel",
+      "successCreate": "Vacancy created successfully!",
+      "successEdit": "Vacancy updated successfully!",
+      "errorCreate": "Failed to create vacancy. Please try again.",
+      "errorEdit": "Failed to update vacancy. Please try again."
+    }
   }
 }

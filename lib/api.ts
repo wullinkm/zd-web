@@ -1,4 +1,4 @@
-import { Vacancy } from "./types";
+import { Vacancy, VacancyInput } from "./types";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://zd-gw-9famg.ondigitalocean.app";
 
@@ -58,4 +58,76 @@ export async function getVacancy(id: number): Promise<Vacancy> {
   }
 
   return res.json();
+}
+
+export async function getMyVacancies(token: string): Promise<Vacancy[]> {
+  const res = await fetch(`${API_URL}/vacancies/mine`, {
+    cache: "no-store",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error(`API error: ${res.status}`);
+  }
+
+  return res.json();
+}
+
+export async function createVacancy(
+  data: VacancyInput,
+  token: string
+): Promise<Vacancy> {
+  const res = await fetch(`${API_URL}/vacancies`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`API error: ${res.status} ${body}`);
+  }
+
+  return res.json();
+}
+
+export async function updateVacancy(
+  id: number,
+  data: Partial<VacancyInput>,
+  token: string
+): Promise<Vacancy> {
+  const res = await fetch(`${API_URL}/vacancies/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`API error: ${res.status} ${body}`);
+  }
+
+  return res.json();
+}
+
+export async function deleteVacancy(id: number, token: string): Promise<void> {
+  const res = await fetch(`${API_URL}/vacancies/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`API error: ${res.status} ${body}`);
+  }
 }

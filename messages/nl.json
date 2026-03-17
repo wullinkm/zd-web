@@ -4,7 +4,8 @@
     "jobs": "Vacatures",
     "about": "Over ons",
     "contact": "Contact",
-    "findJobs": "Vind vacatures"
+    "findJobs": "Vind vacatures",
+    "dashboard": "Dashboard"
   },
   "hero": {
     "badge": "Je carrière begint hier",
@@ -136,5 +137,42 @@
   },
   "common": {
     "unknown": "Onbekend"
+  },
+  "dashboard": {
+    "myVacancies": "Mijn vacatures",
+    "postNew": "Nieuwe vacature plaatsen",
+    "backToSite": "Terug naar de site",
+    "accessDenied": "Toegang geweigerd",
+    "accessDeniedDesc": "Je hebt een werkgeversaccount nodig om deze pagina te openen.",
+    "vacancyCount": "{count, plural, one {# vacature} other {# vacatures}}",
+    "noVacancies": "Nog geen vacatures",
+    "noVacanciesDesc": "Plaats je eerste vacature om te beginnen.",
+    "active": "Actief",
+    "inactive": "Inactief",
+    "edit": "Bewerken",
+    "delete": "Verwijderen",
+    "deleteConfirm": "Weet je zeker dat je deze vacature wilt verwijderen?",
+    "editVacancy": "Vacature bewerken",
+    "form": {
+      "createTitle": "Nieuwe vacature plaatsen",
+      "editTitle": "Vacature bewerken",
+      "title": "Functietitel",
+      "company": "Bedrijf",
+      "location": "Locatie",
+      "description": "Beschrijving",
+      "department": "Afdeling",
+      "employmentType": "Type dienstverband",
+      "salaryMin": "Salaris minimaal",
+      "salaryMax": "Salaris maximaal",
+      "salaryCurrency": "Valuta",
+      "url": "Sollicitatie-URL",
+      "save": "Opslaan",
+      "saving": "Opslaan...",
+      "cancel": "Annuleren",
+      "successCreate": "Vacature succesvol aangemaakt!",
+      "successEdit": "Vacature succesvol bijgewerkt!",
+      "errorCreate": "Vacature aanmaken mislukt. Probeer het opnieuw.",
+      "errorEdit": "Vacature bijwerken mislukt. Probeer het opnieuw."
+    }
   }
 }

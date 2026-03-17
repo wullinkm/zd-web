@@ -1,3 +1,16 @@
+export interface VacancyInput {
+  title: string;
+  company: string;
+  location?: string | null;
+  description?: string | null;
+  department?: string | null;
+  employment_type?: string | null;
+  salary_min?: number | null;
+  salary_max?: number | null;
+  salary_currency?: string | null;
+  url?: string | null;
+}
+
 export interface Vacancy {
   id: number;
   title: string;
@@ -12,6 +25,7 @@ export interface Vacancy {
   url: string | null;
   date_posted: string | null;
   is_active: boolean;
+  user_id?: string | null;
   created_at: string;
   updated_at: string;
 }
