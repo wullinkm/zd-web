@@ -20,8 +20,9 @@ export async function AuthButtons() {
 
   const handleSignIn = async () => {
     "use server";
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
     await signIn(logtoConfig, {
-      redirectUri: `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/callback`,
+      redirectUri: `${baseUrl}/callback`,
     });
   };
 
