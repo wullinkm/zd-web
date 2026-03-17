@@ -122,7 +122,7 @@ export default async function ApplicationsPage({ params }: PageProps) {
                           )}
                         </div>
                         <Link
-                          href={`/${locale}/dashboard/candidates/${app.user_id}`}
+                          href={`/dashboard/candidates/${app.user_id}`}
                           className="text-sm text-primary hover:underline"
                         >
                           {t("viewCandidate")}

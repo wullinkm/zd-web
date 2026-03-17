@@ -52,7 +52,7 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
                 Build your profile to get discovered by employers.
               </p>
               <Button asChild size="sm">
-                <Link href={`/${locale}/profile/edit`}>{t("editProfile")}</Link>
+                <Link href="/profile/edit">{t("editProfile")}</Link>
               </Button>
             </CardContent>
           </Card>
@@ -69,7 +69,7 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
                 Track the status of your job applications.
               </p>
               <Button asChild size="sm" variant="outline">
-                <Link href={`/${locale}/dashboard/my-applications`}>{t("viewMyApplications")}</Link>
+                <Link href="/dashboard/my-applications">{t("viewMyApplications")}</Link>
               </Button>
             </CardContent>
           </Card>
@@ -120,13 +120,13 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
         </div>
         <div className="flex items-center gap-2">
           <Button asChild variant="outline">
-            <Link href={`/${locale}/dashboard/candidates`}>
+            <Link href={`/dashboard/candidates`}>
               <Users className="mr-2 h-4 w-4" />
               {t("browseCandidates")}
             </Link>
           </Button>
           <Button asChild>
-            <Link href={`/${locale}/dashboard/new`}>
+            <Link href={`/dashboard/new`}>
               <PlusCircle className="mr-2 h-4 w-4" />
               {t("postNew")}
             </Link>
@@ -143,7 +143,7 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
               {t("noVacanciesDesc")}
             </p>
             <Button asChild className="mt-6">
-              <Link href={`/${locale}/dashboard/new`}>{t("postNew")}</Link>
+              <Link href={`/dashboard/new`}>{t("postNew")}</Link>
             </Button>
           </CardContent>
         </Card>
@@ -168,7 +168,7 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
                 </div>
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm" asChild>
-                    <Link href={`/${locale}/dashboard/edit/${vacancy.id}`}>
+                    <Link href={`/dashboard/edit/${vacancy.id}`}>
                       <Pencil className="mr-1.5 h-3.5 w-3.5" />
                       {t("edit")}
                     </Link>

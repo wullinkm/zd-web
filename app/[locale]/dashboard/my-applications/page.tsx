@@ -68,7 +68,7 @@ export default async function MyApplicationsPage({ params }: PageProps) {
             <h2 className="text-lg font-semibold">{td("noApplications")}</h2>
             <p className="mt-1 text-sm text-muted-foreground">{td("noApplicationsDesc")}</p>
             <Button asChild className="mt-6">
-              <Link href={`/${locale}/vacancies`}>{td("browseJobs")}</Link>
+              <Link href={`/vacancies`}>{td("browseJobs")}</Link>
             </Button>
           </CardContent>
         </Card>
@@ -84,7 +84,7 @@ export default async function MyApplicationsPage({ params }: PageProps) {
                       {vacancy ? (
                         <>
                           <Link
-                            href={`/${locale}/vacancies/${app.vacancy_id}`}
+                            href={`/vacancies/${app.vacancy_id}`}
                             className="font-semibold hover:underline"
                           >
                             {vacancy.title}
@@ -110,7 +110,7 @@ export default async function MyApplicationsPage({ params }: PageProps) {
                     </div>
                     {vacancy && (
                       <Button asChild variant="outline" size="sm">
-                        <Link href={`/${locale}/vacancies/${app.vacancy_id}`}>
+                        <Link href={`/vacancies/${app.vacancy_id}`}>
                           View Job
                         </Link>
                       </Button>

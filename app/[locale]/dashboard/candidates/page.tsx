@@ -179,7 +179,7 @@ export default async function CandidatesPage({ params, searchParams }: PageProps
                         )}
                       </div>
                       <Button asChild size="sm">
-                        <Link href={`/${locale}/dashboard/candidates/${candidate.user_id}`}>
+                        <Link href={`/dashboard/candidates/${candidate.user_id}`}>
                           {t("viewProfile")}
                         </Link>
                       </Button>
