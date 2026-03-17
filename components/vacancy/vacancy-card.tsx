@@ -38,8 +38,13 @@ export function VacancyCard({ vacancy }: VacancyCardProps) {
                 {vacancy.location}
               </span>
             )}
-            {vacancy.salary && (
-              <span className="flex items-center gap-1">💰 {vacancy.salary}</span>
+            {(vacancy.salary_min || vacancy.salary_max) && (
+              <span className="flex items-center gap-1">
+                💰 {vacancy.salary_currency || "€"}{" "}
+                {vacancy.salary_min && vacancy.salary_max
+                  ? `${vacancy.salary_min} - ${vacancy.salary_max}`
+                  : vacancy.salary_min || vacancy.salary_max}
+              </span>
             )}
             {vacancy.date_posted && (
               <span className="flex items-center gap-1">

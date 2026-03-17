@@ -98,10 +98,15 @@ export default async function VacancyPage({ params }: PageProps) {
                     <span className="font-medium">{vacancy.employment_type}</span>
                   </div>
                 )}
-                {vacancy.salary && (
+                {(vacancy.salary_min || vacancy.salary_max) && (
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">{t("salary")}</span>
-                    <span className="font-medium">{vacancy.salary}</span>
+                    <span className="font-medium">
+                      {vacancy.salary_currency || "€"}{" "}
+                      {vacancy.salary_min && vacancy.salary_max
+                        ? `${vacancy.salary_min} - ${vacancy.salary_max}`
+                        : vacancy.salary_min || vacancy.salary_max}
+                    </span>
                   </div>
                 )}
               </div>

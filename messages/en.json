@@ -58,7 +58,13 @@
     "type": "Type",
     "salary": "Salary",
     "postedOn": "Posted {date}",
-    "applyNow": "Apply Now"
+    "applyNow": "Apply Now",
+    "filters": "Filters",
+    "allCompanies": "All companies",
+    "allLocations": "All locations",
+    "allDepartments": "All departments",
+    "department": "Department",
+    "clearFilters": "Clear filters"
   },
   "about": {
     "title": "Connecting Talent with",

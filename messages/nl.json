@@ -58,7 +58,13 @@
     "type": "Type",
     "salary": "Salaris",
     "postedOn": "Geplaatst op {date}",
-    "applyNow": "Nu solliciteren"
+    "applyNow": "Nu solliciteren",
+    "filters": "Filters",
+    "allCompanies": "Alle bedrijven",
+    "allLocations": "Alle locaties",
+    "allDepartments": "Alle afdelingen",
+    "department": "Afdeling",
+    "clearFilters": "Filters wissen"
   },
   "about": {
     "title": "Talent verbinden met",
