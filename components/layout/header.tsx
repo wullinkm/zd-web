@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Menu, Briefcase, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,11 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/s
 import { cn } from "@/lib/utils";
 import { Link, useRouter } from "@/i18n/navigation";
 
-export function Header() {
+interface HeaderProps {
+  authSlot?: ReactNode;
+}
+
+export function Header({ authSlot }: HeaderProps) {
   const t = useTranslations("nav");
   const locale = useLocale();
   const pathname = usePathname();
@@ -25,7 +29,6 @@ export function Header() {
 
   const switchLocale = () => {
     const newLocale = locale === "nl" ? "en" : "nl";
-    // Strip current locale prefix to get the path
     const pathWithoutLocale = pathname.replace(/^\/(nl|en)/, "") || "/";
     router.replace(pathWithoutLocale as "/" | "/vacancies" | "/about" | "/contact", { locale: newLocale });
   };
@@ -70,6 +73,7 @@ export function Header() {
             <Globe className="h-4 w-4" />
             {locale === "nl" ? "EN" : "NL"}
           </Button>
+          {authSlot}
           <Button asChild>
             <Link href="/vacancies">{t("findJobs")}</Link>
           </Button>
@@ -80,6 +84,7 @@ export function Header() {
           <Button variant="ghost" size="icon" onClick={switchLocale}>
             <Globe className="h-4 w-4" />
           </Button>
+          {authSlot}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">

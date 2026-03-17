@@ -4,6 +4,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { AuthButtons } from "@/components/auth/auth-buttons";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { routing } from "@/i18n/routing";
@@ -37,7 +38,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
     <html lang={locale} className={cn("font-sans", geist.variable)}>
       <body className="flex min-h-screen flex-col">
         <NextIntlClientProvider messages={messages}>
-          <Header />
+          <Header authSlot={<AuthButtons />} />
           <main className="flex-1">{children}</main>
           <Footer />
         </NextIntlClientProvider>
