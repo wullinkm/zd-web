@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { getVacancies } from "@/lib/api";
+import { Vacancy } from "@/lib/types";
 import { VacancyList } from "@/components/vacancy/vacancy-list";
 
 export default async function HomePage() {
-  let vacancies = [];
+  let vacancies: Vacancy[] = [];
   try {
     vacancies = await getVacancies({ limit: 6 });
   } catch {

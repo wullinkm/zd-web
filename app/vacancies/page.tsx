@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { getVacancies } from "@/lib/api";
+import { Vacancy } from "@/lib/types";
 import { VacancyList } from "@/components/vacancy/vacancy-list";
 import { SearchBar } from "@/components/search/search-bar";
 
@@ -14,7 +15,7 @@ interface PageProps {
 
 export default async function VacanciesPage({ searchParams }: PageProps) {
   const params = await searchParams;
-  let vacancies = [];
+  let vacancies: Vacancy[] = [];
   try {
     vacancies = await getVacancies({
       search: params.q,
