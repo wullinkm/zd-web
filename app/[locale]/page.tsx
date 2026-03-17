@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Briefcase, Building2, Globe, ArrowRight, Search, CheckCircle2, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,7 +10,7 @@ import { SearchBar } from "@/components/search/search-bar";
 import { Link } from "@/i18n/navigation";
 
 export default async function HomePage() {
-  const t = useTranslations();
+  const t = await getTranslations();
 
   let vacancies: Vacancy[] = [];
   try {

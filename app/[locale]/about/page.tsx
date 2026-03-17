@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Search, Send, PartyPopper, Target, Heart, Shield } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -6,8 +6,8 @@ export const metadata = {
   title: "Over ons",
 };
 
-export default function AboutPage() {
-  const t = useTranslations("about");
+export default async function AboutPage() {
+  const t = await getTranslations("about");
 
   const steps = [
     { icon: Search, step: "01", title: t("step01"), description: t("step01Desc") },

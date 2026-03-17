@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { getVacancies } from "@/lib/api";
 import { Vacancy } from "@/lib/types";
 import { VacancyList } from "@/components/vacancy/vacancy-list";
@@ -14,7 +14,7 @@ interface PageProps {
 }
 
 export default async function VacanciesPage({ searchParams }: PageProps) {
-  const t = useTranslations("vacancies");
+  const t = await getTranslations("vacancies");
   const params = await searchParams;
   let vacancies: Vacancy[] = [];
   try {

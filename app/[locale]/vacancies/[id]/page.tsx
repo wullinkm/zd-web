@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { ArrowLeft, MapPin, Clock, Building2, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,7 +14,7 @@ interface PageProps {
 }
 
 export default async function VacancyPage({ params }: PageProps) {
-  const t = useTranslations("vacancies");
+  const t = await getTranslations("vacancies");
   const { id } = await params;
   let vacancy;
   try {
