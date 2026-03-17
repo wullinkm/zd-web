@@ -17,13 +17,15 @@ export default async function DashboardLayout({
 }: DashboardLayoutProps) {
   const { locale } = await params;
   const t = await getTranslations("dashboard");
-  const { isAuthenticated, claims } = await getLogtoContext(logtoConfig);
+  const { isAuthenticated, claims, userInfo } = await getLogtoContext(logtoConfig, {
+    fetchUserInfo: true,
+  });
 
   if (!isAuthenticated) {
     redirect(`/${locale}`);
   }
 
-  const roles = (claims?.roles as string[] | undefined) ?? [];
+  const roles = (userInfo?.roles as string[] | undefined) ?? (claims?.roles as string[] | undefined) ?? [];
   const isEmployer = roles.includes("employer");
 
   if (!isEmployer) {

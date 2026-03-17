@@ -6,11 +6,13 @@ import { User, LogIn, LayoutDashboard } from "lucide-react";
 import { getLocale } from "next-intl/server";
 
 export async function AuthButtons() {
-  const { isAuthenticated, claims } = await getLogtoContext(logtoConfig);
+  const { isAuthenticated, claims, userInfo } = await getLogtoContext(logtoConfig, {
+    fetchUserInfo: true,
+  });
   const locale = await getLocale();
 
   if (isAuthenticated) {
-    const roles = (claims?.roles as string[] | undefined) ?? [];
+    const roles = (userInfo?.roles as string[] | undefined) ?? (claims?.roles as string[] | undefined) ?? [];
     const isEmployer = roles.includes("employer");
 
     return (
