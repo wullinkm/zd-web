@@ -99,6 +99,21 @@ All API calls go through `lib/api.ts`, a thin wrapper around the ZD Gateway:
 - **Runtime:** Node.js
 - **Source:** GitHub auto-deploy from `main` branch
 
+## Internationalization (i18n)
+
+The website must support two locales:
+
+| Locale | Language | Region |
+|--------|----------|--------|
+| `nl` | Dutch | Netherlands |
+| `en` | English | United States |
+
+- Default locale: `nl` (Dutch)
+- URL structure: `/nl/vacancies`, `/en/vacancies`
+- All user-facing text must use translation keys (no hardcoded strings)
+- SEO: each locale gets its own `<html lang="">` and `hreflang` tags
+- Implementation: Next.js App Router i18n with `[locale]` dynamic segment
+
 ## Design Principles
 
 1. **SEO first** — Job listings must be server-rendered and indexable
@@ -106,3 +121,4 @@ All API calls go through `lib/api.ts`, a thin wrapper around the ZD Gateway:
 3. **Accessible** — shadcn/ui provides accessible primitives out of the box
 4. **Simple** — No auth, no complex state management on v1
 5. **API-driven** — All data comes from ZD Gateway; no local database
+6. **Multilingual** — All content available in Dutch (nl) and English (en-US)
