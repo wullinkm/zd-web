@@ -4,18 +4,14 @@ export interface Vacancy {
   company: string;
   location: string | null;
   description: string | null;
-  url: string | null;
-  salary: string | null;
+  department: string | null;
   employment_type: string | null;
+  salary_min: number | null;
+  salary_max: number | null;
+  salary_currency: string | null;
+  url: string | null;
   date_posted: string | null;
+  is_active: boolean;
   created_at: string;
   updated_at: string;
-}
-
-export interface VacancyListResponse {
-  items: Vacancy[];
-  total: number;
-  page: number;
-  size: number;
-  pages: number;
 }
