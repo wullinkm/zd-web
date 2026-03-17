@@ -36,24 +36,19 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
 
   const messages = await getMessages();
 
-  let isEmployer = false;
+  let isLoggedIn = false;
   try {
-    const { isAuthenticated, userInfo } = await getLogtoContext(logtoConfig, {
-      fetchUserInfo: true,
-    });
-    if (isAuthenticated) {
-      const roles = (userInfo?.roles as string[] | undefined) ?? [];
-      isEmployer = roles.includes("employer");
-    }
+    const { isAuthenticated } = await getLogtoContext(logtoConfig);
+    isLoggedIn = isAuthenticated;
   } catch {
-    // Auth check failed, not employer
+    // Auth check failed
   }
 
   return (
     <html lang={locale} className={cn("font-sans", geist.variable)}>
       <body className="flex min-h-screen flex-col">
         <NextIntlClientProvider messages={messages}>
-          <Header authSlot={<AuthButtons />} isEmployer={isEmployer} />
+          <Header authSlot={<AuthButtons />} isLoggedIn={isLoggedIn} />
           <main className="flex-1">{children}</main>
           <Footer />
         </NextIntlClientProvider>

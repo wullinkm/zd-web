@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
+import { getLogtoContext } from "@logto/next/server-actions";
 import { ArrowLeft, MapPin, Clock, Building2, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,19 +9,30 @@ import { Separator } from "@/components/ui/separator";
 import { getVacancy } from "@/lib/api";
 import { formatDate } from "@/lib/utils";
 import { Link } from "@/i18n/navigation";
+import { logtoConfig } from "@/lib/logto";
+import { ApplyButton } from "@/components/vacancies/apply-button";
 
 interface PageProps {
-  params: Promise<{ id: string }>;
+  params: Promise<{ id: string; locale: string }>;
 }
 
 export default async function VacancyPage({ params }: PageProps) {
   const t = await getTranslations("vacancies");
-  const { id } = await params;
+  const ta = await getTranslations("applications");
+  const { id, locale } = await params;
   let vacancy;
   try {
     vacancy = await getVacancy(Number(id));
   } catch {
     notFound();
+  }
+
+  let isAuthenticated = false;
+  try {
+    const ctx = await getLogtoContext(logtoConfig);
+    isAuthenticated = ctx.isAuthenticated;
+  } catch {
+    // not authenticated
   }
 
   return (
@@ -111,15 +123,34 @@ export default async function VacancyPage({ params }: PageProps) {
                 )}
               </div>
 
-              {vacancy.url && (
-                <>
-                  <Separator className="my-5" />
-                  <Button className="w-full" asChild>
-                    <a href={vacancy.url} target="_blank" rel="noopener noreferrer">
-                      {t("applyNow")} <ExternalLink className="ml-1 h-4 w-4" />
-                    </a>
-                  </Button>
-                </>
+              <Separator className="my-5" />
+
+              {/* Apply button for logged-in users */}
+              {isAuthenticated ? (
+                <ApplyButton
+                  vacancyId={vacancy.id}
+                  applyLabel={ta("applyNow")}
+                  appliedLabel={ta("applied")}
+                  coverLetterPlaceholder={ta("coverLetterPlaceholder")}
+                  submitLabel={ta("apply")}
+                  submittingLabel={ta("applying")}
+                  cancelLabel={ta("cancel")}
+                  successMessage={ta("applySuccess")}
+                  errorMessage={ta("applyError")}
+                  alreadyAppliedMessage={ta("alreadyApplied")}
+                />
+              ) : vacancy.url ? (
+                <Button className="w-full" asChild>
+                  <a href={vacancy.url} target="_blank" rel="noopener noreferrer">
+                    {t("applyNow")} <ExternalLink className="ml-1 h-4 w-4" />
+                  </a>
+                </Button>
+              ) : (
+                <Button className="w-full" asChild>
+                  <Link href={`/sign-in?redirect_uri=${encodeURIComponent(`/vacancies/${vacancy.id}`)}`}>
+                    {ta("applyNow")}
+                  </Link>
+                </Button>
               )}
             </CardContent>
           </Card>

@@ -3,7 +3,7 @@ import { getLogtoContext } from "@logto/next/server-actions";
 import { getTranslations } from "next-intl/server";
 import { logtoConfig } from "@/lib/logto";
 import { Link } from "@/i18n/navigation";
-import { LayoutDashboard, PlusCircle, ArrowLeft } from "lucide-react";
+import { LayoutDashboard, PlusCircle, ArrowLeft, Users, FileText, Star, Coins, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface DashboardLayoutProps {
@@ -28,23 +28,7 @@ export default async function DashboardLayout({
   const roles = (userInfo?.roles as string[] | undefined) ?? (claims?.roles as string[] | undefined) ?? [];
   const isEmployer = roles.includes("employer");
 
-  if (!isEmployer) {
-    return (
-      <div className="mx-auto max-w-2xl px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold">{t("accessDenied")}</h1>
-        <p className="mt-2 text-muted-foreground">{t("accessDeniedDesc")}</p>
-        <Link
-          href="/"
-          className="mt-6 inline-flex items-center gap-2 text-sm text-primary hover:underline"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          {t("backToSite")}
-        </Link>
-      </div>
-    );
-  }
-
-  const navItems = [
+  const employerNavItems = [
     {
       href: `/${locale}/dashboard` as const,
       label: t("myVacancies"),
@@ -55,7 +39,42 @@ export default async function DashboardLayout({
       label: t("postNew"),
       icon: PlusCircle,
     },
+    {
+      href: `/${locale}/dashboard/candidates` as const,
+      label: t("candidates"),
+      icon: Users,
+    },
+    {
+      href: `/${locale}/dashboard/applications` as const,
+      label: t("applications"),
+      icon: FileText,
+    },
+    {
+      href: `/${locale}/dashboard/credits` as const,
+      label: t("credits"),
+      icon: Coins,
+    },
   ];
+
+  const seekerNavItems = [
+    {
+      href: `/${locale}/dashboard` as const,
+      label: "Dashboard",
+      icon: LayoutDashboard,
+    },
+    {
+      href: `/${locale}/profile/edit` as const,
+      label: t("editProfile"),
+      icon: User,
+    },
+    {
+      href: `/${locale}/dashboard/my-applications` as const,
+      label: t("myApplications"),
+      icon: Star,
+    },
+  ];
+
+  const navItems = isEmployer ? employerNavItems : seekerNavItems;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">

@@ -11,10 +11,10 @@ import { Link, useRouter } from "@/i18n/navigation";
 
 interface HeaderProps {
   authSlot?: ReactNode;
-  isEmployer?: boolean;
+  isLoggedIn?: boolean;
 }
 
-export function Header({ authSlot, isEmployer = false }: HeaderProps) {
+export function Header({ authSlot, isLoggedIn = false }: HeaderProps) {
   const t = useTranslations("nav");
   const locale = useLocale();
   const pathname = usePathname();
@@ -26,7 +26,7 @@ export function Header({ authSlot, isEmployer = false }: HeaderProps) {
     { href: "/vacancies" as const, label: t("jobs") },
     { href: "/about" as const, label: t("about") },
     { href: "/contact" as const, label: t("contact") },
-    ...(isEmployer ? [{ href: "/dashboard" as const, label: "Dashboard" }] : []),
+    ...(isLoggedIn ? [{ href: "/dashboard" as const, label: "Dashboard" }] : []),
   ];
 
   const switchLocale = () => {
