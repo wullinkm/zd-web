@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "jobs": "Vacatures",
+    "careerGuide": "Carrièregids",
     "about": "Over ons",
     "contact": "Contact",
     "findJobs": "Vind vacatures",
@@ -317,5 +318,40 @@
     "buyCredits": "Credits kopen",
     "buyCreditsDesc": "Meer credits nodig? Neem contact met ons op voor een creditpakket.",
     "contactUs": "Neem contact op"
+  },
+  "careerGuide": {
+    "title": "Carrièregids",
+    "titleHighlight": "Top 50 Carrières",
+    "subtitle": "Ontdek de beste carrièrekansen op de Nederlandse arbeidsmarkt. Van salarissen tot vereiste skills — alles wat je nodig hebt om de juiste loopbaankeuze te maken.",
+    "allCareers": "Alle carrières",
+    "searchPlaceholder": "Zoek op functietitel of sector...",
+    "learnMore": "Meer info →",
+    "whatDoesItDo": "Wat doet een {title}?",
+    "whatToLearn": "Wat heb je nodig?",
+    "salary": "Salarissen",
+    "careerPath": "Carrièrepad",
+    "relatedVacancies": "Bekijk gerelateerde vacatures",
+    "relatedVacanciesDesc": "Op zoek naar een baan als {title}? Bekijk actuele vacatures op ZD Jobs.",
+    "browseVacancies": "Zoek vacatures",
+    "entry": "Junior / Startend",
+    "mid": "Medior / Ervaren",
+    "senior": "Senior / Expert",
+    "skills": "Vaardigheden",
+    "education": "Opleiding & Certificeringen",
+    "categories": {
+      "technology": "Technologie",
+      "healthcare": "Zorg & Gezondheid",
+      "finance": "Finance",
+      "engineering": "Engineering",
+      "business": "Business",
+      "legal": "Juridisch",
+      "creative": "Creatief",
+      "education": "Onderwijs",
+      "sustainability": "Duurzaamheid",
+      "logistics": "Logistiek & Handel"
+    },
+    "backToGuide": "← Terug naar Carrièregids",
+    "cta": "Klaar voor de volgende stap?",
+    "ctaDesc": "Bekijk alle vacatures op ZD Jobs en vind jouw perfecte match."
   }
 }

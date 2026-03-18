@@ -24,6 +24,7 @@ export function Header({ authSlot, isLoggedIn = false }: HeaderProps) {
   const navLinks = [
     { href: "/" as const, label: t("home") },
     { href: "/vacancies" as const, label: t("jobs") },
+    { href: "/career-guide" as const, label: t("careerGuide") },
     { href: "/about" as const, label: t("about") },
     { href: "/contact" as const, label: t("contact") },
     ...(isLoggedIn ? [{ href: "/dashboard" as const, label: "Dashboard" }] : []),
@@ -32,7 +33,7 @@ export function Header({ authSlot, isLoggedIn = false }: HeaderProps) {
   const switchLocale = () => {
     const newLocale = locale === "nl" ? "en" : "nl";
     const pathWithoutLocale = pathname.replace(/^\/(nl|en)/, "") || "/";
-    router.replace(pathWithoutLocale as "/" | "/vacancies" | "/about" | "/contact", { locale: newLocale });
+    router.replace(pathWithoutLocale as "/" | "/vacancies" | "/career-guide" | "/about" | "/contact", { locale: newLocale });
   };
 
   const isActive = (href: string) => {

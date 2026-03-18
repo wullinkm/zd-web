@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "jobs": "Jobs",
+    "careerGuide": "Career Guide",
     "about": "About",
     "contact": "Contact",
     "findJobs": "Find Jobs",
@@ -317,5 +318,40 @@
     "buyCredits": "Buy Credits",
     "buyCreditsDesc": "Need more credits? Contact us to purchase a credit package.",
     "contactUs": "Contact us"
+  },
+  "careerGuide": {
+    "title": "Career Guide",
+    "titleHighlight": "Top 50 Careers",
+    "subtitle": "Discover the best career opportunities in the Dutch labour market. From salaries to required skills — everything you need to make the right career choice.",
+    "allCareers": "All careers",
+    "searchPlaceholder": "Search by job title or sector...",
+    "learnMore": "Learn more →",
+    "whatDoesItDo": "What does a {title} do?",
+    "whatToLearn": "What do you need?",
+    "salary": "Salaries",
+    "careerPath": "Career Path",
+    "relatedVacancies": "View related vacancies",
+    "relatedVacanciesDesc": "Looking for a job as a {title}? Browse current vacancies on ZD Jobs.",
+    "browseVacancies": "Browse vacancies",
+    "entry": "Junior / Entry-level",
+    "mid": "Medior / Experienced",
+    "senior": "Senior / Expert",
+    "skills": "Skills",
+    "education": "Education & Certifications",
+    "categories": {
+      "technology": "Technology",
+      "healthcare": "Healthcare",
+      "finance": "Finance",
+      "engineering": "Engineering",
+      "business": "Business",
+      "legal": "Legal",
+      "creative": "Creative",
+      "education": "Education",
+      "sustainability": "Sustainability",
+      "logistics": "Logistics & Trade"
+    },
+    "backToGuide": "← Back to Career Guide",
+    "cta": "Ready for the next step?",
+    "ctaDesc": "Browse all vacancies on ZD Jobs and find your perfect match."
   }
 }
