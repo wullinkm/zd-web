@@ -16,14 +16,14 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const { slug } = await params;
-  const locale = await getLocale();
+  const { slug, locale } = await params;
   const career = getCareerBySlug(slug);
 
   if (!career) return {};
 
-  const title = career.title[locale as "nl" | "en"];
-  const subtitle = career.subtitle[locale as "nl" | "en"];
+  const lang = (locale || "nl") as "nl" | "en";
+  const title = career.title[lang];
+  const subtitle = career.subtitle[lang];
 
   return {
     title,
@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default async function CareerDetailPage({ params }: PageProps) {
-  const { slug } = await params;
-  const locale = await getLocale();
+  const { slug, locale: localeParam } = await params;
+  const locale = localeParam || (await getLocale());
   const t = await getTranslations("careerGuide");
 
   const career = getCareerBySlug(slug);
