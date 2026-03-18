@@ -11,10 +11,6 @@ interface PageProps {
   params: Promise<{ slug: string; locale: string }>;
 }
 
-export async function generateStaticParams() {
-  return careers.map((career) => ({ slug: career.slug }));
-}
-
 export async function generateMetadata({ params }: PageProps) {
   const { slug, locale } = await params;
   const career = getCareerBySlug(slug);
